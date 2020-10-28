@@ -10,9 +10,23 @@ const Posts = React.lazy(()=>import('./containers/Posts'));
 
 
 class App extends Component {
+
+  state= {
+    show:false
+  }
+
+  modeHandler= () =>{
+    this.setState(prevState => {
+      return {show: !prevState};
+    })
+  }
+
   render() {
     return (
-      <BrowserRouter>
+        <button >Toggle Mode</button>
+
+
+     /* <BrowserRouter>
         <React.Fragment>
           <nav>
             <NavLink to="/user">User Page</NavLink> |&nbsp;
@@ -26,7 +40,7 @@ class App extends Component {
               </Suspense>}
           />
         </React.Fragment>
-      </BrowserRouter>
+      </BrowserRouter>*/
     );
   }
 }
