@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import User from './containers/User';
 import Welcome from './containers/Welcome';
@@ -20,7 +20,11 @@ class App extends Component {
           </nav>
           <Route path="/" component={Welcome} exact />
           <Route path="/user" component={User} />
-          <Route path="/posts" component={Posts} />
+          <Route path="/posts" render={()=>
+              <Suspense fallback={}>
+                <Posts />
+              </Suspense>}
+          />
         </React.Fragment>
       </BrowserRouter>
     );
