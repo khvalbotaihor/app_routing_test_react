@@ -21,7 +21,7 @@ class App extends Component {
           <Route path="/" component={Welcome} exact />
           <Route path="/user" component={User} />
           <Route path="/posts" render={()=>
-              <Suspense fallback={}>
+              <Suspense fallback={<div>Loading...</div>}>
                 <Posts />
               </Suspense>}
           />
